@@ -1,5 +1,0 @@
-
-.DS_Store
-node_modules/@rollup/rollup-win32-x64-msvc/rollup.win32-x64-msvc.node
-node_modules/@rollup/rollup-darwin-x64/rollup.darwin-x64.node
-node_modules/@esbuild/win32-x64/esbuild.exe

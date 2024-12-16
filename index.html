@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تحليل المشاريع</title>
+    <!-- Add Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Add Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script>
+      // تسجيل البلجن
+      Chart.register(ChartDataLabels);
+    </script>
+    <style>
+      /* نمط مؤقت للتحميل */
+      #app {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+      #app.loaded {
+        opacity: 1;
+      }
+      .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: 'Noto Sans Arabic', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading">جاري التحميل...</div>
+    <div id="app">
+      <div class="ai-input-container">
+        <textarea 
+          class="ai-textarea"
+          placeholder="أدخل تفاصيل المشروع هنا وسيقوم الذكاء الاصطناعي بتحليلها..."
+          id="aiInput"
+        ></textarea>
+        <button class="ai-submit-btn" id="analyzeBtn">
+          <i class="fas fa-robot"></i>
+          تحليل المعلومات
+        </button>
+      </div>
+      <div class="instructions-container">
+        <div class="instructions-title">توجيه الذكاء الاصطناعي</div>
+        <textarea 
+          id="customInstructions" 
+          class="custom-textarea" 
+          placeholder="اكتب تعليماتك للذكاء الاصطناعي هنا... مثال: قم بتحليل المشاريع المختارة من حيث الفعالية والتكلفة، واقترح طرق لتحسين أثرها على المجتمع" 
+          rows="4"
+        ></textarea>
+      </div>
+      <div id="chart-container">
+        <canvas id="chart"></canvas>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+    <script>
+      // إضافة كلاس loaded بعد تحميل المحتوى
+      window.addEventListener('load', () => {
+        document.querySelector('.loading').style.display = 'none';
+        document.querySelector('#app').classList.add('loaded');
+      });
+    </script>
+  </body>
+</html>

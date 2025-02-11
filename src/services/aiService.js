@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-const genAI = new GoogleGenerativeAI('AIzaSyDPNxOu_2__AHwG6V7t2VP3Xb5aoc1pQgg');
+const genAI = new GoogleGenerativeAI('AIzaSyB0oQfOX_wFJOQIXev6BNWZAE9P8CyZPqA');
 
 function cleanText(text) {
   return text
